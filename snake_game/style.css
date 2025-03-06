@@ -10,7 +10,12 @@ body {
     font-family: "Fira Code", monospace;
 }
 
+header {
+    align-items: center;
+}
+
 .game-container {
+    position: relative; /* Novo */
     background-color: #4a4a4a;
     padding: 20px;
     border-radius: 20px;
@@ -36,6 +41,7 @@ body {
 
 #score {
     color: #00ff00;
+    margin-left: 5px;
 }
 
 #bot-counter {
@@ -44,15 +50,9 @@ body {
     gap: 5px;
 }
 
-.bot-icon {
-    width: 16px;
-    height: 16px;
-    background-color: #00ffff;
-    border: 2px solid #000;
-}
-
 #bot-count {
     color: #00ff00;
+    margin-right: 5px;
 }
 
 #game-board {
@@ -81,10 +81,15 @@ body {
     height: 50px;
     background-color: #555;
     border: none;
+    border-radius: 10px;
     color: #fff;
     font-size: 20px;
     cursor: pointer;
     box-shadow: 0 5px #333;
+}
+
+.d-pad button:active {
+    transform: translateY(3px);
 }
 
 #up {
@@ -104,14 +109,20 @@ body {
 }
 
 .action-buttons {
+    position: absolute;
+    bottom: 50px; /* Ajusta a posição em relação à parte inferior do game-container */
+    right: 50px; /* Ajusta a posição em relação à direita */
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 .settings-buttons {
+    position: absolute;
+    bottom: 170px; /* Ajusta a posição abaixo do canvas */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
     display: flex;
-    flex-direction: column;
     gap: 10px;
 }
 
@@ -132,7 +143,7 @@ body {
 }
 
 .settings-buttons button {
-    padding: 10px 20px;
+    padding: 5px 10px;
     background-color: #ff4444;
     border: none;
     border-radius: 10px;
@@ -147,24 +158,31 @@ body {
     transform: translateY(3px);
 }
 
-#pause-button {
+#a-button {
     background-color: #ffa500;
     box-shadow: 0 5px #cc8400;
+    width: 50px;
+    height: 45px;
+    font-size: 18px;
 }
 
-#reset-button {
+#b-button {
     background-color: #ffa500;
     box-shadow: 0 5px #cc8400;
+    width: 50px;
+    height: 45px;
+    font-size: 18px;
+    align-self: flex-start;
 }
 
 #settings-button {
-    background-color: #ffa500;
-    box-shadow: 0 5px #cc8400;
+    background-color: #aaaaaa;
+    box-shadow: 0 5px #8a8a8a;
 }
 
 .popup-alert {
     position: fixed;
-    bottom: 20px;
+    top: 20px;
     right: 20px;
     background: #28a745;
     color: white;

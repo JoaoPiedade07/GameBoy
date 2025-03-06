@@ -28,6 +28,17 @@ function gameLoop(timestamp) {
     }
 }
 
+function drawGameOver() {
+    ctx.fillStyle = "red";
+    ctx.font = "28px 'Press Start 2P', sans-serif"; // Garantir fallback
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle"; // Centralizar corretamente o texto
+    ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 20);
+    ctx.fillText(`Score: ${score}`, canvas.width / 2, canvas.height / 2 + 20);
+}
+
+
+
 // Desenhar o jogo
 function draw() {
     ctx.fillStyle = "#000";
@@ -48,6 +59,10 @@ function draw() {
     };
 
     document.getElementById("score").innerText = `Score: ${score}`;
+
+    if (gameOver) {
+        drawGameOver();
+    }
 }
 
 // Atualizar o estado do jogo
@@ -80,8 +95,11 @@ function update(deltaTime) {
     if (targetPosition.x < 0 || targetPosition.x >= tileCount || targetPosition.y < 0 || targetPosition.y >= tileCount || 
         snake.slice(1).some(segment => segment.x === targetPosition.x && segment.y === targetPosition.y)) {
         gameOver = true;
-        mostrarPopup(`Game over! Seu score: ${score}`);
-        resetGame();
+        //mostrarPopup(`Game over! Seu score: ${score}`);
+        if (gameOver) {
+            setTimeout(resetGame, 3000); // Espera 3 segundos antes de resetar
+            return;
+        }
     }
 }
 
