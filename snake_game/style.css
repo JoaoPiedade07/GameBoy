@@ -11,13 +11,35 @@ body {
 }
 
 header {
-    align-items: center;
+    position: absolute;
+    top: 10px; /* Ajusta a distância do topo */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o header */
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    font-family: "Press Start 2P", cursive;
+}
+
+.github-icon {
+    font-size: 30px;
+    color: #fff;
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.github-icon:hover {
+    transform: scale(1.2);
 }
 
 .game-container {
     position: relative; /* Novo */
     background-color: #4a4a4a;
     padding: 20px;
+    margin-top: 10px;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -73,7 +95,8 @@ header {
     ". up ."
     "left . right"
     ". down .";
-    gap: 10px;
+    gap: 5px;
+    margin-bottom: 10px;
 }
 
 .d-pad button {
@@ -110,11 +133,11 @@ header {
 
 .action-buttons {
     position: absolute;
-    bottom: 50px; /* Ajusta a posição em relação à parte inferior do game-container */
-    right: 50px; /* Ajusta a posição em relação à direita */
+    bottom: 60px; /* Ajusta a posição vertical */
+    right: 60px; /* Ajusta a posição horizontal */
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px; /* Espaço entre os botões */
 }
 
 .settings-buttons {
@@ -161,18 +184,21 @@ header {
 #a-button {
     background-color: #ffa500;
     box-shadow: 0 5px #cc8400;
-    width: 50px;
-    height: 45px;
+    width: 55px;
+    height: 50px;
     font-size: 18px;
+    position: relative;
+    left: 20px;
 }
 
 #b-button {
     background-color: #ffa500;
     box-shadow: 0 5px #cc8400;
-    width: 50px;
-    height: 45px;
+    width: 55px;
+    height: 50px;
     font-size: 18px;
-    align-self: flex-start;
+    position: relative;
+    right: 35px;
 }
 
 #settings-button {
