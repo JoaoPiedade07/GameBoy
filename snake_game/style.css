@@ -1,3 +1,5 @@
+@import "@fontsource/fira-code";
+
 body {
     display: flex;
     justify-content: center;
@@ -5,7 +7,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #8b8b8b;
-    font-family: "Press Start 2", cursive;
+    font-family: "Fira Code", monospace;
 }
 
 .game-container {
@@ -107,6 +109,12 @@ body {
     gap: 10px;
 }
 
+.settings-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .action-buttons button {
     padding: 10px 20px;
     background-color: #ff4444;
@@ -123,6 +131,22 @@ body {
     transform: translateY(3px);
 }
 
+.settings-buttons button {
+    padding: 10px 20px;
+    background-color: #ff4444;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 5px #cc0000;
+}
+
+.settings-buttons button:active {
+    box-shadow: 0 2px #cc0000;
+    transform: translateY(3px);
+}
+
 #pause-button {
     background-color: #ffa500;
     box-shadow: 0 5px #cc8400;
@@ -130,4 +154,29 @@ body {
 
 #reset-button {
     background-color: #ffa500;
+    box-shadow: 0 5px #cc8400;
+}
+
+#settings-button {
+    background-color: #ffa500;
+    box-shadow: 0 5px #cc8400;
+}
+
+.popup-alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    transform: translateY(20px);
+}
+
+.popup-alert.mostrar {
+    opacity: 1;
+    transform: translateY(0);
 }
